@@ -5,6 +5,7 @@
 !.gitignore
 !flake.nix
 !flake.lock
+!README.md
 
 # Ignore all files in any directory named .direnv
 .direnv/
