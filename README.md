@@ -24,11 +24,18 @@ This repository contains a Nix flake for setting up the development environment 
 
 ## Using the Flake
 
-To enter the development environment using this flake directly from GitHub:
+To use this flake, follow these steps:
 
-```bash
-nix develop github:johnbarnes-vi/janestreet-kaggle-dev-flake
-```
+1. Create a new directory for your project:
+   ```bash
+   mkdir jane-street-kaggle-project
+   cd jane-street-kaggle-project
+   ```
+
+2. Enter the development environment using the flake directly from GitHub:
+   ```bash
+   nix develop github:johnbarnes-vi/janestreet-kaggle-dev-flake
+   ```
 
 This command will:
 1. Download and set up all required dependencies
@@ -41,6 +48,32 @@ Once in the environment, you can start Jupyter Lab by running:
 ```bash
 jupyter lab
 ```
+
+## Adding Additional Python Packages
+
+If you need to add additional Python packages on top of the base environment, you can use the `--command` option with `nix-shell`:
+
+```bash
+nix develop github:johnbarnes-vi/janestreet-kaggle-dev-flake --command "nix-shell -p 'python3.withPackages(ps: with ps; [ package1 package2 ])' --run zsh"
+```
+
+Replace `package1 package2` with the names of the Python packages you want to add, and `zsh` with your preferred shell.
+
+For example, to add `scikit-learn` and `xgboost`:
+
+```bash
+nix develop github:johnbarnes-vi/janestreet-kaggle-dev-flake --command "nix-shell -p 'python3.withPackages(ps: with ps; [ scikit-learn xgboost ])' --run zsh"
+```
+
+This will give you an environment with all the packages from the original flake, plus the additional Python packages you specified.
+
+Alternatively, you can install additional Python packages using pip once inside the environment:
+
+```bash
+pip install package1 package2
+```
+
+Note that packages installed with pip will only persist for the current session.
 
 ## Additional Flake Commands
 
