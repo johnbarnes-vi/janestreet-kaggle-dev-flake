@@ -10,7 +10,13 @@ This repository contains a Nix flake for setting up the development environment 
 
 ## Prerequisites
 
-1. Install Nix package manager: https://nixos.org/download.html
+1. Install the Nix package manager:
+   - On macOS, run the following command in your terminal:
+     ```bash
+     sh <(curl -L https://nixos.org/nix/install)
+     ```
+   - For other platforms, please refer to the [official Nix installation guide](https://nixos.org/download.html).
+
 2. Enable Nix flakes by adding the following to your `~/.config/nix/nix.conf`:
    ```
    experimental-features = nix-command flakes
