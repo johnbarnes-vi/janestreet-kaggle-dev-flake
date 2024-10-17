@@ -17,7 +17,7 @@ This repository contains a Nix flake for setting up the development environment 
      ```
    - For other platforms, please refer to the [official Nix installation guide](https://nixos.org/download.html).
 
-2. Enable Nix flakes by adding the following to your `~/.config/nix/nix.conf`:
+2. Enable Nix flakes by adding the following to your `~/.config/nix/nix.conf` (you may have to create `~/.config/nix/` and `nix.conf` on first install):
    ```
    experimental-features = nix-command flakes
    ```
